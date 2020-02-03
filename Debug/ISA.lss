@@ -1,0 +1,113 @@
+
+ISA.elf:     file format elf32-littlearm
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000066  00400000  00400000  00010000  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .init         00000004  00400068  00400068  00010068  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  2 .fini         00000004  0040006c  0040006c  0001006c  2**2
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  3 .data         00000000  20000000  20000000  00010070  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  4 .ARM.attributes 0000002a  00000000  00000000  00010070  2**0
+                  CONTENTS, READONLY
+  5 .debug_line   00000059  00000000  00000000  0001009a  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_info   00000076  00000000  00000000  000100f3  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_abbrev 00000014  00000000  00000000  00010169  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_aranges 00000020  00000000  00000000  00010180  2**3
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00400000 <start-0x8>:
+  400000:	00000000 	.word	0x00000000
+  400004:	00400009 	.word	0x00400009
+
+00400008 <start>:
+	lsr r3,r2,1	
+	b .*/
+	/*Question 2*/
+	/*First store values{*/	
+	/*IN*/
+	ldrb r2,=0x49
+  400008:	f04f 0249 	mov.w	r2, #73	; 0x49
+	ldrb r3,=0x4e
+  40000c:	f04f 034e 	mov.w	r3, #78	; 0x4e
+	strb r2,[r0,0]
+  400010:	7002      	strb	r2, [r0, #0]
+	strb r3,[r0,1]
+  400012:	7043      	strb	r3, [r0, #1]
+	/*HIS*/
+	ldrb r3,=0x48
+  400014:	f04f 0348 	mov.w	r3, #72	; 0x48
+	ldrb r4,=0x53
+  400018:	f04f 0453 	mov.w	r4, #83	; 0x53
+	strb r3,[r0,2]
+  40001c:	7083      	strb	r3, [r0, #2]
+	strb r2,[r0,3]
+  40001e:	70c2      	strb	r2, [r0, #3]
+	strb r4,[r0,4]
+  400020:	7104      	strb	r4, [r0, #4]
+	/*HOUSE*/
+	ldrb r5,=0x4f
+  400022:	f04f 054f 	mov.w	r5, #79	; 0x4f
+	ldrb r6,=0x55
+  400026:	f04f 0655 	mov.w	r6, #85	; 0x55
+	ldrb r7,=0x45
+  40002a:	f04f 0745 	mov.w	r7, #69	; 0x45
+	strb r3,[r0,5]
+  40002e:	7143      	strb	r3, [r0, #5]
+	strb r5,[r0,6]
+  400030:	7185      	strb	r5, [r0, #6]
+	strb r6,[r0,7]
+  400032:	71c6      	strb	r6, [r0, #7]
+	strb r4,[r0,8]
+  400034:	7204      	strb	r4, [r0, #8]
+	strb r7,[r0,9]
+  400036:	7247      	strb	r7, [r0, #9]
+	/*AT*/
+	ldrb r8,=0x41
+  400038:	f04f 0841 	mov.w	r8, #65	; 0x41
+	ldrb r9,=0x54
+  40003c:	f04f 0954 	mov.w	r9, #84	; 0x54
+	strb r8,[r0,10]
+  400040:	f880 800a 	strb.w	r8, [r0, #10]
+	strb r9,[r0,11]
+  400044:	f880 900b 	strb.w	r9, [r0, #11]
+	/*RLYEH*/
+	ldrb r10,=0x52
+  400048:	f04f 0a52 	mov.w	sl, #82	; 0x52
+	ldrb r11,=0x4c
+  40004c:	f04f 0b4c 	mov.w	fp, #76	; 0x4c
+	ldrb r12,=0x59
+  400050:	f04f 0c59 	mov.w	ip, #89	; 0x59
+	strb r10,[r0,12]
+  400054:	f880 a00c 	strb.w	sl, [r0, #12]
+	strb r11,[r0,13]
+  400058:	f880 b00d 	strb.w	fp, [r0, #13]
+	strb r12,[r0,14]
+  40005c:	f880 c00e 	strb.w	ip, [r0, #14]
+	strb r7,[r0,15]
+  400060:	73c7      	strb	r7, [r0, #15]
+	strb r3,[r0,16]
+  400062:	7403      	strb	r3, [r0, #16]
+
+	b .
+  400064:	e7fe      	b.n	400064 <start+0x5c>
+
+Disassembly of section .init:
+
+00400068 <_init>:
+  400068:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+  40006a:	bf00      	nop
+
+Disassembly of section .fini:
+
+0040006c <_fini>:
+  40006c:	b5f8      	push	{r3, r4, r5, r6, r7, lr}
+  40006e:	bf00      	nop
